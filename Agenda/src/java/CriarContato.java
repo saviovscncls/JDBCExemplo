@@ -36,24 +36,10 @@ public class CriarContato extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CriarContato</title>");
+            out.println("<title>Servlet CriarContato</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<form method='GET' action = '/Agenda/salvar-contato'>");
-            out.println("Nome: ");
-            out.println("<input type = 'text'name = 'nome'/>");
-            out.println("<br>");
-            out.println("<br>");
-            out.println("Endereço: ");
-            out.println("<input type = 'text' name='endereco'/>");
-            out.println("<br>");
-            out.println("<br>");
-            out.println("Data Nascimento: ");
-            out.println("<input type = 'text' name = 'data_nascimento'/>");
-            out.println("<br>");
-            out.println("<br>");
-            out.println("<button type = 'submit'>Criar Contato</button>");
-            out.println("</form>");
+            out.println("<h1>Servlet CriarContato at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -71,7 +57,8 @@ public class CriarContato extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("/WEB-INF/criarContato.jsp")
+                .forward(request, response);
     }
 
     /**
